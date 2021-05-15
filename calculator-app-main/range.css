@@ -1,7 +1,7 @@
 input[type='range'] {
   height: 22px;
   -webkit-appearance: none;
-  margin: 10px 0;
+  /* margin: 10px 0; */
   width: 60px;
   border-radius: 20px;
 }
@@ -45,6 +45,7 @@ input[type='range']::-moz-range-track {
 }
 
 input[type='range']::-moz-range-thumb {
+  /* transition: 300ms all ease-in-out; */
   box-shadow: 1px 1px 1px #000000;
   border: 1px solid #000000;
   height: 14px;
