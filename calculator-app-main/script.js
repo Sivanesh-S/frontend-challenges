@@ -68,7 +68,7 @@ function updateScreen(value) {
 }
 
 function formattedValue(value) {
-  return parseFloat(value).toLocaleString();
+  return value === '.' ? value : parseFloat(value).toLocaleString();
 }
 
 // events

@@ -134,6 +134,12 @@ h1 {
 .attribution {
   font-size: 11px;
   text-align: center;
+  /* position: fixed;
+  display: inline;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  word-wrap: initial; */
 }
 .attribution a {
   color: var(--toggle-bg);
