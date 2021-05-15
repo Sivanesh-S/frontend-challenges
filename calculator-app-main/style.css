@@ -3,12 +3,6 @@
   src: URL('./fonts/Spartan-VariableFont_wght.ttf') format('truetype');
 }
 
-body {
-  font-family: 'Spartan';
-  font-weight: 700;
-  font-size: 32px;
-}
-
 :root {
   --main-bg: hsl(222, 26%, 31%);
   --keypad-bg: hsl(223, 31%, 20%);
@@ -23,5 +17,51 @@ body {
   --key-shadow: hsl(28, 16%, 65%);
 
   --text: hsl(221, 14%, 31%);
-  --white: hsl(0, 0, 100%);
+  --secondary: hsl(0, 0%, 100%);
+}
+
+body {
+  font-family: 'Spartan';
+  font-weight: 700;
+
+  background-color: var(--main-bg);
+  color: var(--secondary);
+}
+
+header {
+  color: var(--secondary);
+}
+
+#keyboard {
+  font-size: 32px;
+  background-color: var(--keypad-bg);
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.input {
+  background-color: var(--screen-bg);
+}
+
+.numbers {
+  margin: 20px;
+
+  color: var(--text);
+  background-color: var(--key-bg);
+  box-shadow: 0 3px var(--key-shadow);
+}
+
+.action-btn {
+  margin: 20px;
+  color: var(--secondary);
+  background-color: var(--action-key-bg);
+  box-shadow: 0 3px var(--action-key-shadow);
+}
+
+#equals {
+  margin: 20px;
+  color: var(--secondary);
+  background-color: var(--toggle-bg);
+  box-shadow: 0 3px var(--toggle-shadow);
 }
