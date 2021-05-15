@@ -15,7 +15,8 @@ const themes = [
     '--key-shadow': 'hsl(28, 16%, 65%)',
 
     '--text': 'hsl(221, 14%, 31%)',
-    '--secondary': 'hsl(0, 0, 100%)',
+    '--secondary': 'hsl(0, 0%, 100%)',
+    '--screen-text-color': 'hsl(0, 0%, 100%)',
   },
   {
     '--main-bg': 'hsl(0, 0%, 90%)',
@@ -31,7 +32,8 @@ const themes = [
     '--key-shadow': 'hsl(28, 16%, 65%)',
 
     '--text': 'hsl(60, 10%, 19%)',
-    '--secondary': 'hsl(0, 0, 100%)',
+    '--secondary': 'hsl(0, 0%, 100%)',
+    '--screen-text-color': 'hsl(60, 10%, 19%)',
   },
   {
     '--main-bg': 'hsl(268, 75%, 9%)',
@@ -47,8 +49,9 @@ const themes = [
     '--key-shadow': 'hsl(290, 70%, 36%)',
 
     '--text': 'hsl(52, 100%, 62%)',
-    '--secondary': 'hsl(0, 0, 100%)',
+    '--secondary': 'hsl(0, 0%, 100%)',
     '--tertiary': 'hsl(198, 20%, 13%)',
+    '--screen-text-color': 'hsl(52, 100%, 62%)',
   },
 ];
 
@@ -62,6 +65,23 @@ const nodes = numbers.map((i) => document.querySelector(`#n${i}`));
 // utilities
 function updateScreen(value) {
   document.querySelector('#screen').textContent = value;
+}
+
+function formattedValue(value) {
+  let str = new String(value);
+  if (str.length < 3) return str;
+  let index = str.indexOf('.');
+  let length = index !== -1 ? index : str.length;
+
+  let ans = '';
+
+  for (let i = length - 1; i >= 0; i--) {
+    ans += str[i];
+    if (i % 3 === 0 && i !== 0) {
+      ans += ',';
+    }
+  }
+  return ans;
 }
 
 // events
@@ -83,7 +103,7 @@ function keyPressEvent(event) {
     } else {
       answer += key;
     }
-    updateScreen(answer);
+    updateScreen(formattedValue(answer));
   } else if (key === '=') {
     if (operation === '+') {
       prevValue = parseFloat(prevValue) + parseFloat(answer);
@@ -95,7 +115,7 @@ function keyPressEvent(event) {
       prevValue /= answer;
     }
     answer = prevValue;
-    updateScreen(prevValue);
+    updateScreen(formattedValue(prevValue));
   } else {
     if (key === 'DEL') {
       answer = new String(answer).slice(0, answer.length - 1) || 0;

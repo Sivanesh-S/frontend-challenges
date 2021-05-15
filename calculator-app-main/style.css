@@ -18,6 +18,7 @@
 
   --text: hsl(221, 14%, 31%);
   --secondary: hsl(0, 0%, 100%);
+  --screen-text-color: hsl(0, 0%, 100%);
 }
 
 body {
@@ -25,11 +26,11 @@ body {
   font-weight: 700;
 
   background-color: var(--main-bg);
-  color: var(--secondary);
+  color: var(--screen-text-color, --text);
 }
 
 header {
-  color: var(--secondary);
+  color: var(--screen-text-color, --text);
   display: flex;
   align-items: center;
   justify-content: space-between;
