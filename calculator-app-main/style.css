@@ -99,3 +99,11 @@ header {
   grid-column-start: 1;
   grid-column-end: 3;
 }
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: var(--toggle-bg);
+}
