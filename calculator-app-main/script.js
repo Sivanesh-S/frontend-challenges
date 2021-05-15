@@ -112,3 +112,15 @@ function keyPressEvent(event) {
     `prevValue=${prevValue} | answer=${answer} | operation=${operation}`
   );
 }
+
+// THEME handling
+document.querySelector('#theme-range').addEventListener('change', (event) => {
+  const themeIndex = event.target.value - 1;
+
+  const currentTheme = themes[themeIndex];
+  Object.entries(currentTheme).forEach(([key, value]) => {
+    // console.log('key, value:', key, value);
+    const root = document.querySelector(':root');
+    root.style.setProperty(key, value);
+  });
+});
