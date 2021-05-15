@@ -124,7 +124,7 @@ function keyPressEvent(event) {
       answer = 0;
       prevValue = 0;
       operation = null;
-      updateScreen('');
+      updateScreen('0');
     }
   }
 
