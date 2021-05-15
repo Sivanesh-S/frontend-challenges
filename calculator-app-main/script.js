@@ -68,20 +68,7 @@ function updateScreen(value) {
 }
 
 function formattedValue(value) {
-  let str = new String(value);
-  if (str.length < 3) return str;
-  let index = str.indexOf('.');
-  let length = index !== -1 ? index : str.length;
-
-  let ans = '';
-
-  for (let i = length - 1; i >= 0; i--) {
-    ans += str[i];
-    if (i % 3 === 0 && i !== 0) {
-      ans += ',';
-    }
-  }
-  return ans;
+  return parseFloat(value).toLocaleString();
 }
 
 // events

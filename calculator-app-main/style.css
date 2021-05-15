@@ -27,6 +27,8 @@ body {
 
   background-color: var(--main-bg);
   color: var(--screen-text-color, --text);
+  margin: 0px;
+  padding: 20px 0px;
 }
 
 header {
@@ -80,7 +82,7 @@ h1 {
 }
 
 #screen {
-  font-size: 32px;
+  font-size: 38px;
   background-color: var(--screen-bg);
   width: 100%;
   border-radius: 5px;
@@ -135,4 +137,26 @@ h1 {
 }
 .attribution a {
   color: var(--toggle-bg);
+}
+
+@media screen and (max-width: 550px) {
+  #calc-app {
+    width: 90%;
+    overflow: hidden;
+  }
+
+  body {
+    overflow: hidden;
+  }
+
+  .normal-btns {
+    margin: 9px;
+    padding: 25px 0px;
+    cursor: pointer;
+  }
+
+  .string-btns {
+    font-size: 18px;
+    padding-top: 34px;
+  }
 }
