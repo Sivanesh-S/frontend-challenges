@@ -1,3 +1,5 @@
+// globals
+
 const themes = [
   {
     '--main-bg': 'hsl(222, 26%, 31%)',
@@ -49,3 +51,64 @@ const themes = [
     '--tertiary': 'hsl(198, 20%, 13%)',
   },
 ];
+
+let answer = 0;
+let prevValue = 0;
+let operation = null;
+
+const numbers = new Array(10).fill(0).map((el, i) => i);
+const nodes = numbers.map((i) => document.querySelector(`#n${i}`));
+
+// utilities
+function updateScreen(value) {
+  document.querySelector('#screen').textContent = value;
+}
+
+// events
+document.querySelector('#keyboard').addEventListener('click', keyPressEvent);
+
+// eventListenteners
+function keyPressEvent(event) {
+  let key = event.target.textContent;
+  console.log('clicked value:', key);
+
+  if ('+-x/'.indexOf(key) !== -1) {
+    updateScreen('0');
+    prevValue = answer;
+    operation = key;
+    answer = 0;
+  } else if ('1234567890.'.indexOf(key) !== -1) {
+    if (answer === 0) {
+      answer = key;
+    } else {
+      answer += key;
+    }
+    updateScreen(answer);
+  } else if (key === '=') {
+    if (operation === '+') {
+      prevValue = parseFloat(prevValue) + parseFloat(answer);
+    } else if (operation === '-') {
+      prevValue -= answer;
+    } else if (operation === 'x') {
+      prevValue *= answer;
+    } else {
+      prevValue /= answer;
+    }
+    answer = prevValue;
+    updateScreen(prevValue);
+  } else {
+    if (key === 'DEL') {
+      answer = new String(answer).slice(0, answer.length - 1) || 0;
+      updateScreen(answer);
+    } else if (key === 'RESET') {
+      answer = 0;
+      prevValue = 0;
+      operation = null;
+      updateScreen('');
+    }
+  }
+
+  console.log(
+    `prevValue=${prevValue} | answer=${answer} | operation=${operation}`
+  );
+}
