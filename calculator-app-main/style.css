@@ -34,7 +34,11 @@ header {
 
 #keyboard {
   font-size: 32px;
+  text-align: center;
   background-color: var(--keypad-bg);
+  border-radius: 10px;
+  padding: 20px;
+
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
@@ -45,23 +49,39 @@ header {
 }
 
 .numbers {
-  margin: 20px;
-
   color: var(--text);
   background-color: var(--key-bg);
   box-shadow: 0 3px var(--key-shadow);
+  border-radius: 10px;
 }
 
 .action-btn {
-  margin: 20px;
   color: var(--secondary);
   background-color: var(--action-key-bg);
   box-shadow: 0 3px var(--action-key-shadow);
+  border-radius: 10px;
 }
 
 #equals {
-  margin: 20px;
   color: var(--secondary);
   background-color: var(--toggle-bg);
   box-shadow: 0 3px var(--toggle-shadow);
+  border-radius: 10px;
+  grid-column-start: 3;
+  grid-column-end: 5;
+}
+
+#calc-app {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.normal-btns {
+  margin: 10px;
+  padding: 10px 20px;
+}
+
+#reset {
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
