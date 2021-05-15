@@ -44,8 +44,15 @@ header {
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 }
 
-.input {
+#screen {
+  font-size: 32px;
   background-color: var(--screen-bg);
+  width: 100%;
+  border-radius: 5px;
+  padding: 20px;
+  box-sizing: border-box;
+  margin: 20px 0px;
+  text-align: right;
 }
 
 .numbers {
