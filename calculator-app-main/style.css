@@ -169,4 +169,13 @@ h1 {
     font-size: 18px;
     padding-top: 34px;
   }
+
+  header {
+    margin-top: 10px;
+  }
+
+  .attribution {
+    bottom: 5px;
+    right: 5px;
+  }
 }
